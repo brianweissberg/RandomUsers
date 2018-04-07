@@ -19,6 +19,7 @@
 		F57F69E920793B37001BC001 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F69E820793B37001BC001 /* MainTableViewController.swift */; };
 		F57F69EB20793B9A001BC001 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F69EA20793B9A001BC001 /* CloudKitManager.swift */; };
 		F57F69ED20793BDA001BC001 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F69EC20793BDA001BC001 /* MainTableViewCell.swift */; };
+		F57F69F220796A2E001BC001 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F69F120796A2E001BC001 /* Globals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		F57F69E820793B37001BC001 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		F57F69EA20793B9A001BC001 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		F57F69EC20793BDA001BC001 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		F57F69F120796A2E001BC001 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +77,7 @@
 				F57F69DD207939B0001BC001 /* RandomUsers.entitlements */,
 				F57F69DC2079399B001BC001 /* Storyboard */,
 				F57F69DB20793973001BC001 /* View Controllers */,
-				F57F69DA2079396D001BC001 /* Keys */,
+				F57F69DA2079396D001BC001 /* Helpers */,
 				F57F69D920793966001BC001 /* Resources */,
 				F57F69D820793959001BC001 /* Model Controllers */,
 				F57F69D720793954001BC001 /* Models */,
@@ -120,12 +122,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		F57F69DA2079396D001BC001 /* Keys */ = {
+		F57F69DA2079396D001BC001 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				F57F69E620793AF3001BC001 /* Keys.swift */,
+				F57F69F120796A2E001BC001 /* Globals.swift */,
 			);
-			path = Keys;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F57F69DB20793973001BC001 /* View Controllers */ = {
@@ -233,6 +236,7 @@
 				F57F69EB20793B9A001BC001 /* CloudKitManager.swift in Sources */,
 				F57F69E920793B37001BC001 /* MainTableViewController.swift in Sources */,
 				F57F69E720793AF3001BC001 /* Keys.swift in Sources */,
+				F57F69F220796A2E001BC001 /* Globals.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

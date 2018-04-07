@@ -16,13 +16,17 @@ class MainTableViewController: UIViewController {
     
     var users = [RandomUser]()
 
+    //
     // MARK: - Outlets
+    //
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyStateView: UIView!
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     
+    //
     // MARK: - View Lifecycle
+    //
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +39,6 @@ class MainTableViewController: UIViewController {
             }
         }
     }
-
 }
 
 //

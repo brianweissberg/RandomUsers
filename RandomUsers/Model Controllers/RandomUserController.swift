@@ -166,4 +166,10 @@ class RandomUserController {
             self.randomUsers = randomUsers
         }
     }
+    
+    //
+    // MARK: - Custom Functions
+    //
+    
+    /// This function takes a string and
 }

@@ -8,23 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		F57F69C220793425001BC001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F69C120793425001BC001 /* AppDelegate.swift */; };
-		F57F69C420793425001BC001 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F69C320793425001BC001 /* ViewController.swift */; };
 		F57F69C720793425001BC001 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F57F69C520793425001BC001 /* Main.storyboard */; };
 		F57F69C920793429001BC001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F57F69C820793429001BC001 /* Assets.xcassets */; };
 		F57F69CC20793429001BC001 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F57F69CA20793429001BC001 /* LaunchScreen.storyboard */; };
-		F57F69D620793439001BC001 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57F69D520793439001BC001 /* CloudKit.framework */; };
+		F57F69DF207939B1001BC001 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57F69DE207939B1001BC001 /* CloudKit.framework */; };
+		F57F69E120793A9B001BC001 /* RandomUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F69E020793A9B001BC001 /* RandomUser.swift */; };
+		F57F69E320793AA9001BC001 /* RandomUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F69E220793AA9001BC001 /* RandomUsers.swift */; };
+		F57F69E520793AE4001BC001 /* RandomUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F69E420793AE4001BC001 /* RandomUserController.swift */; };
+		F57F69E720793AF3001BC001 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F69E620793AF3001BC001 /* Keys.swift */; };
+		F57F69E920793B37001BC001 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F69E820793B37001BC001 /* MainTableViewController.swift */; };
+		F57F69EB20793B9A001BC001 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F69EA20793B9A001BC001 /* CloudKitManager.swift */; };
+		F57F69ED20793BDA001BC001 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F69EC20793BDA001BC001 /* MainTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F57F69BE20793425001BC001 /* RandomUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F57F69C120793425001BC001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F57F69C320793425001BC001 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F57F69C620793425001BC001 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F57F69C820793429001BC001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F57F69CB20793429001BC001 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F57F69CD20793429001BC001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F57F69D320793437001BC001 /* RandomUsers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RandomUsers.entitlements; sourceTree = "<group>"; };
-		F57F69D520793439001BC001 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		F57F69DD207939B0001BC001 /* RandomUsers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RandomUsers.entitlements; sourceTree = "<group>"; };
+		F57F69DE207939B1001BC001 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		F57F69E020793A9B001BC001 /* RandomUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUser.swift; sourceTree = "<group>"; };
+		F57F69E220793AA9001BC001 /* RandomUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUsers.swift; sourceTree = "<group>"; };
+		F57F69E420793AE4001BC001 /* RandomUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserController.swift; sourceTree = "<group>"; };
+		F57F69E620793AF3001BC001 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		F57F69E820793B37001BC001 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		F57F69EA20793B9A001BC001 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		F57F69EC20793BDA001BC001 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F57F69D620793439001BC001 /* CloudKit.framework in Frameworks */,
+				F57F69DF207939B1001BC001 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,13 +72,13 @@
 		F57F69C020793425001BC001 /* RandomUsers */ = {
 			isa = PBXGroup;
 			children = (
-				F57F69D320793437001BC001 /* RandomUsers.entitlements */,
-				F57F69C120793425001BC001 /* AppDelegate.swift */,
-				F57F69C320793425001BC001 /* ViewController.swift */,
-				F57F69C520793425001BC001 /* Main.storyboard */,
-				F57F69C820793429001BC001 /* Assets.xcassets */,
-				F57F69CA20793429001BC001 /* LaunchScreen.storyboard */,
-				F57F69CD20793429001BC001 /* Info.plist */,
+				F57F69DD207939B0001BC001 /* RandomUsers.entitlements */,
+				F57F69DC2079399B001BC001 /* Storyboard */,
+				F57F69DB20793973001BC001 /* View Controllers */,
+				F57F69DA2079396D001BC001 /* Keys */,
+				F57F69D920793966001BC001 /* Resources */,
+				F57F69D820793959001BC001 /* Model Controllers */,
+				F57F69D720793954001BC001 /* Models */,
 			);
 			path = RandomUsers;
 			sourceTree = "<group>";
@@ -73,9 +86,64 @@
 		F57F69D420793439001BC001 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F57F69D520793439001BC001 /* CloudKit.framework */,
+				F57F69DE207939B1001BC001 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F57F69D720793954001BC001 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F57F69E020793A9B001BC001 /* RandomUser.swift */,
+				F57F69E220793AA9001BC001 /* RandomUsers.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F57F69D820793959001BC001 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F57F69E420793AE4001BC001 /* RandomUserController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		F57F69D920793966001BC001 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F57F69C820793429001BC001 /* Assets.xcassets */,
+				F57F69C120793425001BC001 /* AppDelegate.swift */,
+				F57F69CD20793429001BC001 /* Info.plist */,
+				F57F69D320793437001BC001 /* RandomUsers.entitlements */,
+				F57F69EA20793B9A001BC001 /* CloudKitManager.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F57F69DA2079396D001BC001 /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				F57F69E620793AF3001BC001 /* Keys.swift */,
+			);
+			path = Keys;
+			sourceTree = "<group>";
+		};
+		F57F69DB20793973001BC001 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F57F69E820793B37001BC001 /* MainTableViewController.swift */,
+				F57F69EC20793BDA001BC001 /* MainTableViewCell.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F57F69DC2079399B001BC001 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F57F69CA20793429001BC001 /* LaunchScreen.storyboard */,
+				F57F69C520793425001BC001 /* Main.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,8 +225,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F57F69C420793425001BC001 /* ViewController.swift in Sources */,
+				F57F69E320793AA9001BC001 /* RandomUsers.swift in Sources */,
+				F57F69E520793AE4001BC001 /* RandomUserController.swift in Sources */,
+				F57F69ED20793BDA001BC001 /* MainTableViewCell.swift in Sources */,
 				F57F69C220793425001BC001 /* AppDelegate.swift in Sources */,
+				F57F69E120793A9B001BC001 /* RandomUser.swift in Sources */,
+				F57F69EB20793B9A001BC001 /* CloudKitManager.swift in Sources */,
+				F57F69E920793B37001BC001 /* MainTableViewController.swift in Sources */,
+				F57F69E720793AF3001BC001 /* Keys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +379,7 @@
 				CODE_SIGN_ENTITLEMENTS = RandomUsers/RandomUsers.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RQ8LK92JZ2;
-				INFOPLIST_FILE = RandomUsers/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RandomUsers/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,7 +398,7 @@
 				CODE_SIGN_ENTITLEMENTS = RandomUsers/RandomUsers.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RQ8LK92JZ2;
-				INFOPLIST_FILE = RandomUsers/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RandomUsers/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

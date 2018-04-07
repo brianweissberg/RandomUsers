@@ -8,6 +8,7 @@
 
 import Foundation
 import CloudKit
+import UIKit
 
 class RandomUserController {
     
@@ -25,7 +26,6 @@ class RandomUserController {
     let privateDatabase = CKContainer.default().privateCloudDatabase
     var randomUsers: [RandomUser] = [] {
         didSet {
-            
         }
     }
     
@@ -35,6 +35,7 @@ class RandomUserController {
     
     init() {
         self.cloudKitManager = CloudKitManager()
+        fetchUsersFromCloudKit()
     }
     
     //
@@ -77,15 +78,18 @@ class RandomUserController {
             
             if let error = error {
                 print("There was a fatal error: \(error.localizedDescription)")
+                completion([])
             }
             
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                 print("Invalid HTTP Response")
+                completion([])
                 return
             }
             
             guard let data = data else {
                 print("No data was returned. File: \(#file). Function: \(#function)")
+                completion([])
                 return
             }
             
@@ -97,9 +101,25 @@ class RandomUserController {
                 for user in self.randomUsers {
                     self.saveUser(user: user, completion: { (_) in })
                 }
+                completion(self.randomUsers)
             } catch {
                 print("\(error.localizedDescription)")
+                completion([])
             }
+        }
+        dataTask.resume()
+    }
+    
+    // This function will fetch an image using a URL
+    func fetchImage(withUrl: String, completion: @escaping (UIImage?) -> Void) {
+        
+        guard let requestURL = URL(string: withUrl) else { return }
+        let dataTask = URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
+            if let error = error { print(error.localizedDescription) }
+            
+            guard let data = data,
+                let image = UIImage(data: data) else { completion(nil); return }
+            completion(image)
         }
         dataTask.resume()
     }
@@ -146,10 +166,4 @@ class RandomUserController {
             self.randomUsers = randomUsers
         }
     }
-    
-    
-    
-    
-    
-    
 }

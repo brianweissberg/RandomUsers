@@ -15,7 +15,7 @@ class MainTableViewController: UIViewController {
     //
     
     var users = [RandomUser]()
-
+    
     //
     // MARK: - Outlets
     //
@@ -32,12 +32,36 @@ class MainTableViewController: UIViewController {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.addSubview(self.refreshControl)
         RandomUserController.shared.fetchRandomUsers { (users) in
             DispatchQueue.main.async {
                 self.users = RandomUserController.shared.randomUsers
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    // Refresh Control
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(self.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.red
+        
+        return refreshControl
+    }()
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        
+        RandomUserController.shared.fetchRandomUsers { (users) in
+            DispatchQueue.main.async {
+                self.users = RandomUserController.shared.randomUsers
+                self.tableView.reloadData()
+            }
+        }
+
+        refreshControl.endRefreshing()
     }
 }
 
@@ -58,3 +82,14 @@ extension MainTableViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
+
+
+
+
+
+
+
+
+
+
+

@@ -63,7 +63,7 @@ class MainTableViewController: UIViewController {
         
         refreshControl.addTarget(self, action:
             #selector(self.handleRefresh(_:)),for: UIControlEvents.valueChanged)
-        refreshControl.tintColor = UIColor.red
+        refreshControl.tintColor = .darkGray
         
         return refreshControl
     }()
@@ -104,13 +104,10 @@ class MainTableViewController: UIViewController {
                 return
             }
             
-            self.showEmptyStateView()
-           
             RandomUserController.shared.fetchRandomUsers(numberOfUsers: self.numberOfUsersToFetch) { (users) in
                 DispatchQueue.main.async {
                     self.users = RandomUserController.shared.randomUsers
                     self.tableView.reloadData()
-                    self.showTableView()
                 }
             }
         }

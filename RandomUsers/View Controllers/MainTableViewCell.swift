@@ -46,7 +46,7 @@ class MainTableViewCell: UITableViewCell {
         nameLabel.text = "\(user.firstName.capitalized) \(user.lastName.capitalized)"
         phoneLabel.text = "\(Globals.shared.formatPhoneNumberFrom(string: user.phone))"
         streetLabel.text = Globals.shared.returnCapitalizedString(string: user.street)
-        cityStateZipLabel.text = "\(user.city.capitalized), \(user.state.capitalized) \(user.postcode)"
+        cityStateZipLabel.text = "\(user.city.capitalized), \(user.state.capitalized) \(Globals.shared.formatZipCodeFrom(string: user.postcode))"
         emailLabel.text = user.email
         
         // Update TableView Cell Images

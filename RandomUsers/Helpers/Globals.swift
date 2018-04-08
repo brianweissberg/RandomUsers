@@ -46,4 +46,18 @@ class Globals {
             return stringOfInts
         }
     }
+    
+    /// This function is designed to format zip code strings. If the string is a number, it will return an integer. If the string is not a number, it will return the original string
+    func formatZipCodeFrom(string: String) -> String {
+        
+        let number = Double(string)
+
+        if number == nil {
+            return string
+        } else {
+            guard let double = Double(string) else { return string }
+            let integer = Int(double)
+            return "\(integer)"
+        }
+    }
 }

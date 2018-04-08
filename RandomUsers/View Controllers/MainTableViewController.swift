@@ -43,15 +43,20 @@ class MainTableViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.addSubview(self.refreshControl)
+        showEmptyStateView()
         RandomUserController.shared.fetchRandomUsers(numberOfUsers: numberOfUsersToFetch) { (users) in
             DispatchQueue.main.async {
                 self.users = RandomUserController.shared.randomUsers
                 self.tableView.reloadData()
+                self.showTableView()
             }
         }
     }
     
-    // Refresh Control
+    //
+    // MARK: - Refresh Control
+    //
+    
     lazy var refreshControl: UIRefreshControl = {
         
         let refreshControl = UIRefreshControl()
@@ -92,12 +97,20 @@ class MainTableViewController: UIViewController {
             
             guard let numberString = alert.textFields?.first?.text else { return }
             guard let number = Int(numberString) else { return }
-            self.numberOfUsersToFetch = number
             
+            if 1...5000 ~= number {
+                self.numberOfUsersToFetch = number
+            } else {
+                return
+            }
+            
+            self.showEmptyStateView()
+           
             RandomUserController.shared.fetchRandomUsers(numberOfUsers: self.numberOfUsersToFetch) { (users) in
                 DispatchQueue.main.async {
                     self.users = RandomUserController.shared.randomUsers
                     self.tableView.reloadData()
+                    self.showTableView()
                 }
             }
         }
@@ -107,6 +120,25 @@ class MainTableViewController: UIViewController {
         
         self.present(alert, animated: true)
     }
+    
+    //
+    // MARK: - Methods
+    //
+    
+    func showEmptyStateView() {
+        self.tableView.isHidden = true
+        self.emptyStateView.isHidden = false
+        self.activitySpinner.isHidden = false
+        self.activitySpinner.startAnimating()
+    }
+    
+    func showTableView() {
+        self.tableView.isHidden = false
+        self.activitySpinner.isHidden = true
+        self.emptyStateView.isHidden = true
+        self.activitySpinner.stopAnimating()
+    }
+
 }
 
 //

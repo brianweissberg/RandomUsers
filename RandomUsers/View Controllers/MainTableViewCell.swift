@@ -39,20 +39,22 @@ class MainTableViewCell: UITableViewCell {
     //
     
     func updateCell() {
-    
+        
         guard let user = user else { return }
         
         // Update TableView Cell Labels
         nameLabel.text = "\(user.firstName.capitalized) \(user.lastName.capitalized)"
         phoneLabel.text = "\(Globals.shared.formatPhoneNumberFrom(string: user.phone))"
         streetLabel.text = Globals.shared.returnCapitalizedString(string: user.street)
-        cityStateZipLabel.text = "\(user.city.capitalized), \(user.state.capitalized) \(Int(user.postcode))"
+        cityStateZipLabel.text = "\(user.city.capitalized), \(user.state.capitalized) \(user.postcode)"
         emailLabel.text = user.email
         
-        // Update Tableview Cell Image
+        // Update TableView Cell Images
         RandomUserController.shared.fetchImage(withUrl: user.thumbnail) { (image) in
             if let image = image {
                 DispatchQueue.main.async {
+                    self.thumbnailImageView.layer.cornerRadius = self.thumbnailImageView.frame.size.width / 2
+                    self.thumbnailImageView.layer.masksToBounds = true
                     self.thumbnailImageView.image = image
                 }
             }

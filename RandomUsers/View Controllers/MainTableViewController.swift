@@ -25,6 +25,14 @@ class MainTableViewController: UIViewController {
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     
     //
+    // MARK: - Actions
+    //
+    
+    @IBAction func buttonTapped(_ sender: UIBarButtonItem) {
+        print("Button Tapped")
+    }
+    
+    //
     // MARK: - View Lifecycle
     //
     
@@ -33,7 +41,7 @@ class MainTableViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.addSubview(self.refreshControl)
-        RandomUserController.shared.fetchRandomUsers { (users) in
+        RandomUserController.shared.fetchRandomUsers(numberOfUsers: 40) { (users) in
             DispatchQueue.main.async {
                 self.users = RandomUserController.shared.randomUsers
                 self.tableView.reloadData()
@@ -43,10 +51,11 @@ class MainTableViewController: UIViewController {
     
     // Refresh Control
     lazy var refreshControl: UIRefreshControl = {
+        
         let refreshControl = UIRefreshControl()
+        
         refreshControl.addTarget(self, action:
-            #selector(self.handleRefresh(_:)),
-                                 for: UIControlEvents.valueChanged)
+            #selector(self.handleRefresh(_:)),for: UIControlEvents.valueChanged)
         refreshControl.tintColor = UIColor.red
         
         return refreshControl
@@ -54,13 +63,12 @@ class MainTableViewController: UIViewController {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         
-        RandomUserController.shared.fetchRandomUsers { (users) in
+        RandomUserController.shared.fetchRandomUsers(numberOfUsers: 40) { (users) in
             DispatchQueue.main.async {
                 self.users = RandomUserController.shared.randomUsers
                 self.tableView.reloadData()
             }
         }
-
         refreshControl.endRefreshing()
     }
 }

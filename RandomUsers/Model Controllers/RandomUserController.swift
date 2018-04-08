@@ -63,9 +63,9 @@ class RandomUserController {
     // MARK: Retrieve
     //
     
-    func fetchRandomUsers(completion: @escaping (_ randomUsers: [RandomUser]) -> Void) {
+    func fetchRandomUsers(numberOfUsers number: Int, completion: @escaping (_ randomUsers: [RandomUser]) -> Void) {
         
-        guard let url = URL(string: "https://randomuser.me/api/?results=6") else {
+        guard let url = URL(string: "https://randomuser.me/api/?results=\(number)") else {
             print("There was an error with the url. File: \(#file). Function: \(#function)")
             completion([])
             return
@@ -94,17 +94,24 @@ class RandomUserController {
             }
             
             do {
+                // Delete all users from CloudKit and from users array before fetching new users.
+                for user in self.randomUsers {
+                    self.delete(randomUser: user)
+                    self.randomUsers = []
+                }
+                
+                // Initialize new users from JSON Data
                 let decoder = JSONDecoder()
                 let randomUsers = try decoder.decode(RandomUsers.self, from: data)
                 self.randomUsers = randomUsers.randomUsers
                 
-                for user in self.randomUsers {
+                // Save all newly fetched users to CloudKit and user array
+                for user in randomUsers.randomUsers {
                     self.saveUser(user: user, completion: { (_) in })
                 }
                 completion(self.randomUsers)
             } catch {
                 print("\(error.localizedDescription)")
-                completion([])
             }
         }
         dataTask.resume()
@@ -134,8 +141,6 @@ class RandomUserController {
             if let error = error {
                 print("Error deleting User: \(error.localizedDescription) in file: \(#file)")
                 return
-            } else {
-                print("Successfully deleted User")
             }
         }
     }
@@ -144,6 +149,7 @@ class RandomUserController {
     // MARK: - Fetch Users from CloudKit
     //
     
+    // This function is called in the App Delegate
     func fetchUsersFromCloudKit() {
         
         // Retrieve all random users
@@ -166,10 +172,5 @@ class RandomUserController {
             self.randomUsers = randomUsers
         }
     }
-    
-    //
-    // MARK: - Custom Functions
-    //
-    
-    /// This function takes a string and
 }
+

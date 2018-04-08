@@ -22,7 +22,7 @@ struct RandomUser: Decodable {
     let street: String
     let city: String
     let state: String
-    let postcode: Double
+    let postcode: String
     let thumbnail: String
     let recordID: CKRecordID
     
@@ -72,7 +72,13 @@ struct RandomUser: Decodable {
         street = try location.decode(String.self, forKey: .street)
         city = try location.decode(String.self, forKey: .city)
         state = try location.decode(String.self, forKey: .state)
-        postcode = try location.decode(Double.self, forKey: .postcode)
+        
+        do {
+            postcode = try location.decode(String.self, forKey: .postcode)
+        } catch DecodingError.typeMismatch {
+            let postcodeDouble = try location.decode(Double.self, forKey: .postcode)
+            postcode = "\(postcodeDouble)"
+        }
         
         // Nested Image Data
         let image = try values.nestedContainer(keyedBy: ImageKeys.self, forKey: .picture)
@@ -114,7 +120,7 @@ struct RandomUser: Decodable {
         let street = cloudKitRecord[Keys.streetKey] as? String,
         let city = cloudKitRecord[Keys.cityKey] as? String,
         let state = cloudKitRecord[Keys.stateKey] as? String,
-        let postcode = cloudKitRecord[Keys.postcodeKey] as? Double,
+        let postcode = cloudKitRecord[Keys.postcodeKey] as? String,
             let thumbnail = cloudKitRecord[Keys.thumbnailKey] as? String else { return nil }
         
         self.email = email

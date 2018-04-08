@@ -24,10 +24,7 @@ class RandomUserController {
     
     let cloudKitManager: CloudKitManager
     let privateDatabase = CKContainer.default().privateCloudDatabase
-    var randomUsers: [RandomUser] = [] {
-        didSet {
-        }
-    }
+    var randomUsers: [RandomUser] = []
     
     //
     // MARK: - Initializer

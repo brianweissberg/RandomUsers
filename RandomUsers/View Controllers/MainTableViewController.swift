@@ -135,7 +135,6 @@ class MainTableViewController: UIViewController {
         self.emptyStateView.isHidden = true
         self.activitySpinner.stopAnimating()
     }
-
 }
 
 //

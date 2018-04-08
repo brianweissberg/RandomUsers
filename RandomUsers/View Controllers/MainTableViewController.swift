@@ -85,10 +85,10 @@ class MainTableViewController: UIViewController {
     
     func presentAlert() {
         
-        let alert = UIAlertController(title: "How Many Users Do You Want To Get?", message: "Enter any integer value from 1 - 5,000", preferredStyle: .alert)
+        let alert = UIAlertController(title: "How Many Users Do You Want To Retrieve?", message: "Enter any integer value from 1 - 5,000", preferredStyle: .alert)
         
         alert.addTextField { (textfield) in
-            textfield.placeholder = "Enter Number"
+            textfield.placeholder = "Current Number Of Users: \(self.numberOfUsersToFetch)"
             textfield.textAlignment = .center
             textfield.keyboardType = .numberPad
         }

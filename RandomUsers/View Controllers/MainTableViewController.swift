@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class MainTableViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class MainTableViewController: UIViewController {
     //
     
     var users = [RandomUser]()
+    var numberOfUsersToFetch = 5
     
     //
     // MARK: - Outlets
@@ -29,7 +31,7 @@ class MainTableViewController: UIViewController {
     //
     
     @IBAction func buttonTapped(_ sender: UIBarButtonItem) {
-        print("Button Tapped")
+        presentAlert()
     }
     
     //
@@ -41,7 +43,7 @@ class MainTableViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.addSubview(self.refreshControl)
-        RandomUserController.shared.fetchRandomUsers(numberOfUsers: 40) { (users) in
+        RandomUserController.shared.fetchRandomUsers(numberOfUsers: numberOfUsersToFetch) { (users) in
             DispatchQueue.main.async {
                 self.users = RandomUserController.shared.randomUsers
                 self.tableView.reloadData()
@@ -63,13 +65,47 @@ class MainTableViewController: UIViewController {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         
-        RandomUserController.shared.fetchRandomUsers(numberOfUsers: 40) { (users) in
+        RandomUserController.shared.fetchRandomUsers(numberOfUsers: numberOfUsersToFetch) { (users) in
             DispatchQueue.main.async {
                 self.users = RandomUserController.shared.randomUsers
                 self.tableView.reloadData()
             }
         }
         refreshControl.endRefreshing()
+    }
+    
+    //
+    // MARK: - Alert
+    //
+    
+    func presentAlert() {
+        
+        let alert = UIAlertController(title: "How Many Users Do You Want To Get?", message: "Enter any integer value from 1 - 5,000", preferredStyle: .alert)
+        
+        alert.addTextField { (textfield) in
+            textfield.placeholder = "Enter Number"
+            textfield.textAlignment = .center
+            textfield.keyboardType = .numberPad
+        }
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
+            
+            guard let numberString = alert.textFields?.first?.text else { return }
+            guard let number = Int(numberString) else { return }
+            self.numberOfUsersToFetch = number
+            
+            RandomUserController.shared.fetchRandomUsers(numberOfUsers: self.numberOfUsersToFetch) { (users) in
+                DispatchQueue.main.async {
+                    self.users = RandomUserController.shared.randomUsers
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
     }
 }
 
@@ -90,6 +126,8 @@ extension MainTableViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
+
+
 
 
 
